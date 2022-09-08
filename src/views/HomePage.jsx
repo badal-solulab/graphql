@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import Card from "../component/Card";
+import Card from "../component/card/Card";
 import Loader from "../component/loader/Loader";
 import { GET_CARDS } from "../graphql/queries/Queries";
 import "./homepage.css";

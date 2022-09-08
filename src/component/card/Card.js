@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
-import { DISLIKE_CARD } from "../graphql/mutations/DislikeItem";
-import { LIKE_CARD } from "../graphql/mutations/LikeItem";
+import { DISLIKE_CARD } from "../../graphql/mutations/DislikeItem";
+import { LIKE_CARD } from "../../graphql/mutations/LikeItem";
 import "./cards.css";
 
 const Card = ({ photo, title, cardId, liked, count }) => {
@@ -22,7 +22,7 @@ const Card = ({ photo, title, cardId, liked, count }) => {
     },
   });
 
-  const setlikehandle = () => {
+  const handleLikeDisLikeClick = () => {
     if (isLiked) {
       dislike({
         variables: {
@@ -45,16 +45,16 @@ const Card = ({ photo, title, cardId, liked, count }) => {
         <div className="position-relative">
           <img src={photo} alt="Avatar" />
           <div>
-            <h6 className="likes" onClick={setlikehandle}>
+            <h6 className="likes" onClick={handleLikeDisLikeClick}>
               {!isLiked ? (
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                <i className="fa fa-heart-o" aria-hidden="true"></i>
               ) : (
                 <i
-                  class="fa fa-heart"
+                  className="fa fa-heart"
                   aria-hidden="true"
                   style={{ color: "red" }}
                 ></i>
-              )}{" "}
+              )}
               {likes}
             </h6>
           </div>
@@ -64,9 +64,6 @@ const Card = ({ photo, title, cardId, liked, count }) => {
             <b>{title}</b>
           </h4>
         </div>
-        {/* <button className="addLike" onClick={likeHandle}>
-          {likes ? "Likes" : "Dislike"}
-        </button> */}
       </div>
     </>
   );
